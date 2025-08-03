@@ -1,6 +1,66 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+<style>
+body {
+    background: linear-gradient(135deg, #bf91ae 0%, #d4a5c2 25%, #e8b9d6 50%, #f2d0e8 75%, #fce7f5 100%);
+    min-height: 100vh;
+    font-family: 'Outfit', sans-serif;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes gentleBob {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+.animate-fadeInUp {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-fadeInScaleUp {
+    animation: fadeInScaleUp 0.6s ease-out forwards;
+}
+
+.animate-gentleBob {
+    animation: gentleBob 2s ease-in-out infinite;
+}
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+.delay-700 { animation-delay: 0.7s; }
+.delay-\[0\.8s\] { animation-delay: 0.8s; }
+</style>
+
 <div class="body-wrapper min-h-screen flex justify-center items-center p-4">
 
     <div class="weather-widget-container relative w-full max-w-sm sm:max-w-md">
@@ -18,58 +78,58 @@
                 <div class="current-weather flex items-center mb-2">
                     <div class="weather-icon-main text-5xl mr-3">⛅</div>
                     <div class="temp text-5xl font-semibold">
-                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-300 animate-fadeInScaleUp delay-100" id="temperature">8°C</span>
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-300 animate-fadeInScaleUp delay-100" id="temperature">22°C</span>
                     </div>
                 </div>
 
-                <div class="location text-lg opacity-90 mb-4 tracking-wide animate-fadeInUp delay-200" id="location">New York, USA</div>
+                <div class="location text-lg opacity-90 mb-4 tracking-wide animate-fadeInUp delay-200" id="location">Nairobi, Kenya</div>
 
                 <div class="sun-info bg-black/30 backdrop-blur-sm rounded-2xl p-3 sm:p-4 flex justify-between items-center mb-4 border border-white/10 shadow-md animate-fadeInUp delay-300">
                     <div class="sunrise text-center">
                         <div class="sun-icon text-xl mb-1">☀️</div>
-                        <div class="text-xs opacity-80" id="sunriseTime">6:14 am</div>
+                        <div class="text-xs opacity-80" id="sunriseTime">6:30 am</div>
                     </div>
-                    <div class="day-length text-center text-sm opacity-90" id="dayLength">11 h 42 m</div>
+                    <div class="day-length text-center text-sm opacity-90" id="dayLength">12 h 12 m</div>
                     <div class="sunset text-center">
                         <div class="sun-icon text-xl mb-1">🌙</div>
-                        <div class="text-xs opacity-80" id="sunsetTime">5:56 pm</div>
+                        <div class="text-xs opacity-80" id="sunsetTime">6:42 pm</div>
                     </div>
                 </div>
 
                 <div class="precipitation bg-white/10 backdrop-blur-sm rounded-xl p-3 flex items-center mb-4 border border-white/5 shadow-sm animate-fadeInUp delay-400">
                     <div class="precip-icon text-2xl mr-2 text-blue-300 drop-shadow-lg animate-gentleBob">🌧️</div>
-                    <div class="text-sm opacity-90" id="precipitationChance">Rain 85%</div>
+                    <div class="text-sm opacity-90" id="precipitationChance">Rain 45%</div>
                 </div>
 
                 <div class="humidity-wind flex justify-between text-sm opacity-90 mb-5 animate-fadeInUp delay-500">
-                    <div id="humidity">Humidity: 68%</div>
-                    <div id="windSpeed">Wind: 12 km/h</div>
+                    <div id="humidity">Humidity: 72%</div>
+                    <div id="windSpeed">Wind: 8 km/h</div>
                 </div>
 
                 <div class="forecast flex flex-nowrap justify-between pb-2">
                     <div class="forecast-day bg-white/5 backdrop-blur-sm rounded-xl p-3 w-20 text-center border border-white/10 shadow-sm hover:bg-white/10 transition-all duration-200 cursor-pointer transform hover:-translate-y-1 animate-fadeInUp delay-500">
                         <div class="day-name text-xs font-medium mb-1 opacity-80">Today</div>
                         <div class="forecast-icon text-2xl my-1 drop-shadow-md">⛅</div>
-                        <div class="high-temp text-sm font-semibold bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-300">8°</div>
-                        <div class="low-temp text-xs opacity-70">2°</div>
+                        <div class="high-temp text-sm font-semibold bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-300">22°</div>
+                        <div class="low-temp text-xs opacity-70">14°</div>
                     </div>
                     <div class="forecast-day bg-white/5 backdrop-blur-sm rounded-xl p-3 w-20 text-center border border-white/10 shadow-sm hover:bg-white/10 transition-all duration-200 cursor-pointer transform hover:-translate-y-1 animate-fadeInUp delay-600">
                         <div class="day-name text-xs font-medium mb-1 opacity-80">Fri</div>
                         <div class="forecast-icon text-2xl my-1 drop-shadow-md">🌧️</div>
-                        <div class="high-temp text-sm font-semibold bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-300">7°</div>
-                        <div class="low-temp text-xs opacity-70">1°</div>
+                        <div class="high-temp text-sm font-semibold bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-300">20°</div>
+                        <div class="low-temp text-xs opacity-70">13°</div>
                     </div>
                     <div class="forecast-day bg-white/5 backdrop-blur-sm rounded-xl p-3 w-20 text-center border border-white/10 shadow-sm hover:bg-white/10 transition-all duration-200 cursor-pointer transform hover:-translate-y-1 animate-fadeInUp delay-700">
                         <div class="day-name text-xs font-medium mb-1 opacity-80">Sat</div>
                         <div class="forecast-icon text-2xl my-1 drop-shadow-md">🌧️</div>
-                        <div class="high-temp text-sm font-semibold bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-300">6°</div>
-                        <div class="low-temp text-xs opacity-70">0°</div>
+                        <div class="high-temp text-sm font-semibold bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-300">19°</div>
+                        <div class="low-temp text-xs opacity-70">12°</div>
                     </div>
                     <div class="forecast-day bg-white/5 backdrop-blur-sm rounded-xl p-3 w-20 text-center border border-white/10 shadow-sm hover:bg-white/10 transition-all duration-200 cursor-pointer transform hover:-translate-y-1 animate-fadeInUp delay-[0.8s]">
                         <div class="day-name text-xs font-medium mb-1 opacity-80">Sun</div>
                         <div class="forecast-icon text-2xl my-1 drop-shadow-md">☀️</div>
-                        <div class="high-temp text-sm font-semibold bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-300">9°</div>
-                        <div class="low-temp text-xs opacity-70">2°</div>
+                        <div class="high-temp text-sm font-semibold bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-300">24°</div>
+                        <div class="low-temp text-xs opacity-70">15°</div>
                     </div>
                 </div>
             </div>
